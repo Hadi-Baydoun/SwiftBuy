@@ -1,83 +1,61 @@
-const bar = document.getElementById('bar')
-const close = document.getElementById('close')
-const nav = document.getElementById('navbar')
+const bar = document.getElementById('bar'),
+      close = document.getElementById('close'),
+      nav = document.getElementById('navbar');
 
-if(bar){
-    bar.addEventListener('click', ()=>{
-        nav.classList.add('active')
-    })
-}
 
-if(close){
-    close.addEventListener('click', ()=>{
-        nav.classList.remove('active')
-    })
-}
-
-// Sample product data for demonstration
-const products = [
-    {
-        id: 1,
-        image: '/images/products/n6.jpg',
-        brand: 'adidas',
-        name: 'Cartoon Astronaut T-Shirts',
-        rating: 5,
-        price: 78,
-        // Add more properties as needed
-    },
-    {
-        id: 2,
-        image: '/images/products/n6.jpg',
-        brand: 'Nike',
-        name: 'Cartoon Astronaut T-Shirts',
-        rating: 2,
-        price: 18,
-        // Add more properties as needed
-    },
-];
-
-// Function to generate a product item HTML
-function generateProductHTML(product) {
-    return `
-    <div class="single-pro-details">
-    <h6>Home / T-Shirt</h6>
-    <h4>${brand}</h4>
-    <h2>$139.00</h2>
-    <select>
-        <option>Select Size</option>
-        <option>XXL</option>
-        <option>Xl</option>
-        <option>Large</option>
-        <option>Medium</option>
-        <option>Small</option>
-    </select>
-    <input type="number" value="1">
-    <button class="normal">Add To Cart</button>
-    <h4>Product Details</h4>
-    <span>The Gildon Ultra Cotton T-Shirt is made from asubstantial 6.0 oz. per sq. yd. fabri constructed from 100% coton, this classic fit preshrunk jersey knit provides unmatched comfort with each wear. Featuring a taped neck and shoulder, and a seamless double-needle collar, and available in a range of colors, it offers it all in the ultimate head-turning package.</span>
-</div>
-    `;
-}
-
-// Function to handle product item click and redirect to detailed view
-function handleProductClick(productId) {
-    // Redirect to detailed view page with the product ID
-    window.location.href = `product-details.html?productId=${productId}`;
-}
-
-// Function to generate and display product items
-function displayProductItems() {
-    const productContainer = document.querySelector('.product-container');
-    
-    products.forEach(product => {
-        const productHTML = generateProductHTML(product);
-        productContainer.innerHTML += productHTML;
-        
-        // Attach click event to each product item
-        const productItem = document.getElementById(`product-${product.id}`);
-        productItem.addEventListener('click', () => handleProductClick(product.id));
+if (bar) {
+    bar.addEventListener('click', () => {
+        navMenu.classList.toggle('active'); // Toggle instead of add/remove
     });
 }
 
-// Call the function to display product items
-displayProductItems();
+if(close){
+    close.addEventListener('click',()=>{
+        navMenu.classList.remove('active')
+    })
+}
+
+const navLink = document.querySelectorAll('#nav-bar')
+
+function linkAction(){
+    const navMenu = document.getElementById('active')
+    navMenu.classList.remove('active')
+}
+navLink.forEach(n => n.addEventListener('click', linkAction));
+
+/*Filter*/ 
+
+let mixerFeatured = mixitup('.pro-container', {
+    selectors:{
+        target: '.pro'
+    },
+    animation : {
+    duration:500
+}
+})
+
+const linkFeatured = document.querySelectorAll('.featured__item')
+
+function activeFeatured(){
+    linkFeatured.forEach(l=>l.classList.remove('active-featured'))
+    this,classList.add('active-featured')
+}
+
+const filterButtons = document.querySelectorAll('.featured__item');
+filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active-featured');
+        });
+
+        // Add active class to the clicked button
+        button.classList.add('active-featured');
+
+        // Get the data-filter value from the clicked button
+        const filterValue = button.getAttribute('data-filter');
+
+        // Use MixItUp API to filter the items
+        mixerFeatured.filter(filterValue);
+    });
+});
