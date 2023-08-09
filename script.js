@@ -30,7 +30,7 @@ let mixerFeatured = mixitup('.pro-container', {
         target: '.pro'
     },
     animation : {
-    duration:500
+    duration:700
 }
 })
 
@@ -42,18 +42,19 @@ function activeFeatured(){
 }
 
 const filterButtons = document.querySelectorAll('.featured__item');
+
 filterButtons.forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function () {
         // Remove active class from all buttons
         filterButtons.forEach(btn => {
             btn.classList.remove('active-featured');
         });
 
         // Add active class to the clicked button
-        button.classList.add('active-featured');
+        this.classList.add('active-featured');
 
         // Get the data-filter value from the clicked button
-        const filterValue = button.getAttribute('data-filter');
+        const filterValue = this.getAttribute('data-filter');
 
         // Use MixItUp API to filter the items
         mixerFeatured.filter(filterValue);
