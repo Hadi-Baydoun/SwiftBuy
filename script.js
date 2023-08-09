@@ -60,3 +60,25 @@ filterButtons.forEach(button => {
         mixerFeatured.filter(filterValue);
     });
 });
+
+
+
+let swiperPopular = new Swiper(".section-p1", {
+    loop: true,
+    spaceBetween: 24,
+    slidesPerView: 'auto',
+    grabCursor: true,
+    pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 3,
+        },
+        1024: {
+            spaceBetween: 48,
+        },
+    }
+});
+

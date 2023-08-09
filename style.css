@@ -1008,7 +1008,7 @@ footer .copyrights{
     #hero{
         height: 70vh;
         padding: 0 80px;
-        background-position: top 30% right 30%;
+        background-position: top 0% right 0%;
     }
     #feature{
         justify-content: center;
@@ -1207,3 +1207,6 @@ footer .copyrights{
         padding: 20px;
     }
 }
+.swiper-pagination-bullet{
+    background: white
+  }
