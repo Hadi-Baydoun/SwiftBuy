@@ -57,7 +57,7 @@
             <div class="pro-container">
                 
                 
-                <div class="pro men" id="product-1" onClick ="window.location.href='/sproduct.html'" mix men>
+                <div class="pro men" id="product-1" mix men id="product-1" onClick="redirectToSProducts(0)">
                     <img src="/images/products/f1.jpg">
                     <div class="des">
                         <span>Jordan Essentials</span>
@@ -73,7 +73,7 @@
                     </div>
                     <a href="/cart.html"><i class="fa-solid fa-cart-arrow-down cart"></i></a>
                 </div>
-                <div class="pro women" mix women>
+                <div class="pro women" mix women onClick="redirectToSProducts(1)">
                     <img src="/images/products/f6.jpg">
                     <div class="des">
                         <span>Nike Dri-FIT Prima</span>
@@ -90,7 +90,7 @@
                     <a href="/cart.html"><i class="fa-solid fa-cart-arrow-down cart"></i></a>
                 </div>
                 
-                <div class="pro men" mix men>
+                <div class="pro men" mix men onClick="redirectToSProducts(2)">
                     <video autoplay muted loop src="images/products/video.mp4"></video>
                     <div class="des">
                         <span>Nike Sportswear Club Fleece</span>
@@ -106,7 +106,7 @@
                     </div>
                     <a href="/cart.html"><i class="fa-solid fa-cart-arrow-down cart"></i></a>
                 </div>
-                <div class="pro gear" mix gear>
+                <div class="pro gear" mix gear onClick="redirectToSProducts(3)">
                     <img src="/images/products/n3.jpg">
                     <div class="des">
                         <span>Jordan Flight Mini Backpack
@@ -121,7 +121,7 @@
                     </div>
                     <a href="/cart.html"><i class="fa-solid fa-cart-arrow-down cart"></i></a>
                 </div>
-                <div class="pro men" mix men>
+                <div class="pro men" mix men onClick="redirectToSProducts(4)">
                     <img src="/images/products/f4.jpg">
                     <div class="des">
                         <span>Nike Blazer Phantom Mid</span>
@@ -138,11 +138,11 @@
                 </div>
                 
                 
-                <div class="pro women" mix women>
+                <div class="pro women" mix women onClick="redirectToSProducts(5)">
                     <img src="/images/products/f7.jpg">
                     <div class="des">
                         <span>Nike Pro</span>
-                        <h5>Women's Mid-Rise 3" Graphic Shorts</h5>
+                        <h5>Women's Mid-Rise 3 Graphic Shorts</h5>
                         <div class="star">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -151,7 +151,7 @@
                     </div>
                     <a href="/cart.html"><i class="fa-solid fa-cart-arrow-down cart"></i></a>
                 </div>
-                <div class="pro gear">
+                <div class="pro gear" mix gear onClick="redirectToSProducts(6)">
                     <img src="/images/products/n4.jpg">
                     <div class="des">
                         <span>Nike 22oz Big Mouth</span>
@@ -163,7 +163,7 @@
                     </div>
                     <a href="/cart.html"><i class="fa-solid fa-cart-arrow-down cart"></i></a>
                 </div>
-                <div class="pro gear" mix gear>
+                <div class="pro gear" mix gear onClick="redirectToSProducts(7)">
                     <img src="/images/products/n1.jpg">
                     <div class="des">
                         <span>Premier League Academy</span>
@@ -177,7 +177,7 @@
                     </div>
                     <a href="/cart.html"><i class="fa-solid fa-cart-arrow-down cart"></i></a>
                 </div>
-                <div class="pro women" >
+                <div class="pro women" mix women onClick="redirectToSProducts(8)">
                     <video autoplay muted loop src="images/products/video1.mp4"></video>
                     <div class="des">
                         <span>Nike Sportswear Phoenix Fleece</span>
@@ -194,7 +194,7 @@
                 </div>
 
                 
-                <div class="pro gear" mix gear> 
+                <div class="pro gear" mix gear onClick="redirectToSProducts(9)"> 
                     <img src="/images/products/n2.jpg">
                     <div class="des">
                         <span>Jordan Legend</span>
@@ -210,7 +210,7 @@
                     </div>
                     <a href="/cart.html"><i class="fa-solid fa-cart-arrow-down cart"></i></a>
                 </div>
-                <div class="pro women" mix women>
+                <div class="pro women" mix women onClick="redirectToSProducts(10)">
                     <img src="/images/products/f5.jpg">
                     <div class="des">
                         <span>Nike Pegasus 40 Premium</span>
@@ -225,7 +225,7 @@
                     </div>
                     <a href="/cart.html"><i class="fa-solid fa-cart-arrow-down cart"></i></a>
                 </div>
-                <div class="pro men" id="product-2" mix men>
+                <div class="pro men" id="product-2" mix men onClick="redirectToSProducts(11)">
                     <img src="/images/products/f2.jpg">
                     <div class="des">
                         <span>Nike Sportswear Club Fleece</span>
@@ -246,6 +246,12 @@
             
             
         </section>
+        <script>
+            function redirectToSProducts(index) {
+                window.location.href = `/sproducts.html?item=${index}`;
+
+            }
+            </script>
 
         
         <section id="pagination" class="section-p1">

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SwiftBuy</title>
+        <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <section id="header">
+            <a href="/index.html"><img src="images/logo.png" alt="logo"></a>
+            <div>
+                <ul id="navbar">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a class="active" href="/shop.html">Shop</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li id="lg-bag"><a href="/cart.html"><i class="fa-solid fa-basket-shopping"></i></a></li>
+                    <a href="#" id="close"><i class="far fa-times"></i></a>
+                    
+                </ul>
+            </div>
+            <div id="mobile">
+                <a href="/cart.html"><i class="fa-solid fa-basket-shopping"></i></a>
+                <i id="bar" class="fas fa-outdent"></i>
+            </div>
+        </section>
+
+        <section id="prodetails" class="section-p1">
+            <div class="single-pro-image">
+                <img src="" width="100%" id="MainImg" alt="">
+            </div>
+            <div class="single-pro-details" id="ProductDetails">
+                
+            </div>
+        </section>
+        
+        <script>
+            const itemData = [
+                {
+                    title:"Jordan Essentials",
+                    name: "Men's Fleece Pullover",
+                    price: "$72",
+                    sizes: ["Select Size", "XXL", "XL", "Large", "Medium", "Small"],
+                    description: "You want a hoodie that's simple and looks good, right? Here you go. It's made of soft fleece that's smooth on the outside and plush on the inside, helping you stay comfy and warm all day.",
+                    images: ["/images/products/f1.jpg", "/images/products/f2.jpg", "/images/products/f3.jpg", "/images/products/f4.jpg"]
+                },
+                {
+                    title:"Nike Dri- FIT Prima",
+                    name: "Women's 1/2-Zip Training Top",
+                    price: "$100",
+                    sizes: ["Select Size", "XXL", "XL", "Large", "Medium", "Small"],
+                    description: "Stay comfortable before, during and after those tough workouts in this loose-fit Nike Prima top. Irresistibly smooth and sleek, its premium fabric feels soft and airy, with the perfect amount of flex and stretch for all of your moves. With adjustable features to help you navigate every part of your day, you won't want to take it off. And with sweat-wicking tech and a polished look, you don't have to.",
+                    images: ["/images/products/f6.jpg", "/images/products/f7.jpg", "/images/products/f8.jpg", "/images/products/f9.jpg"]
+                },
+                {
+                    title:"Nike Sportswear Club Fleece",
+                    name: "Crew",
+                    price: "$48.97",
+                    sizes: ["Select Size", "XXL", "XL", "Large", "Medium", "Small"],
+                    description: "A closet staple, the Nike Sportswear Club Fleece Crew combines a classic embroidered logo on the left chest with the soft comfort of fleece for an elevated everyday look.",
+                    images: ["/images/products/try.jpg","images/products/f7.jpg", "/images/products/f8.jpg", "/images/products/f9.jpg"]
+                },
+                {
+                    title:"Jordan Flight Mini Backpack",
+                    name: "Backpack (4L)",
+                    price: "$60",
+                    sizes: ["Select Size", "XXL", "XL", "Large", "Medium", "Small"],
+                    description: "Small in size, big on space, this backpack has a main zippered compartment that can hold your wallet, keys, phone, a good read and anything else you want to take on your outings. The front zip pocket offers space to secure small items you don't want lost in the shuffle of the main compartment, and the handles and adjustable, detachable straps provide multiple carry options and styling options.",
+                    images: ["/images/products/n3.jpg", "/images/products/f7.jpg", "/images/products/f8.jpg", "/images/products/f9.jpg"]
+                },
+                {
+                    title:"Nike Blazer Phantom Mid",
+                    name: "Men's Shoes",
+                    price: "$150",
+                    sizes: ["Select Size", "XXL", "XL", "Large", "Medium", "Small"],
+                    description: "Styled for the ‘70s. Loved in the ‘80s. Classic in the ‘90s. Ready for the future. The Blazer Mid delivers a timeless design that’s easy to wear. The era-echoing upper breaks in beautifully and pairs with bold branding for a premium feel. Go ahead—perfect your outfit.",
+                    images: ["/images/products/f4.jpg", "/images/products/f7.jpg", "/images/products/f8.jpg", "/images/products/f9.jpg"]
+                },
+                {
+                    title:"Nike Pro",
+                    name: "Women's Mid-Rise 3 Graphic Shorts",
+                    price: "$40",
+                    sizes: ["Select Size", "XXL", "XL", "Large", "Medium", "Small"],
+                    description: "Train like a pro every day in these super-stretchy shorts. Powered by moisture-wicking technology, they work hard to keep you dry and comfortable while you push through the intensity of your toughest workouts.",
+                    images: ["/images/products/f7.jpg", "/images/products/f7.jpg", "/images/products/f8.jpg", "/images/products/f9.jpg"]
+                },
+                {
+                    title:"Nike 22oz Big Mouth",
+                    name: "Water Bottle",
+                    price: "$12",
+                    sizes: ["Select Size", "XXL", "XL", "Large", "Medium", "Small"],
+                    description: "The Nike 22oz Big Mouth Water Bottle has a squeezable design with a push-pull spout for easy drinking on the go.",
+                    images: ["/images/products/n4.jpg", "/images/products/f7.jpg", "/images/products/f8.jpg", "/images/products/f9.jpg"]
+                },
+                {
+                    title:"Premier League Academy",
+                    name: "Soccer Ball",
+                    price: "$37",
+                    sizes: ["Select Size", "XXL", "XL", "Large", "Medium", "Small"],
+                    description: "The Premier League Academy Soccer Ball features innovative grooves designed for consistent spin when the ball is in the air. High-contrast graphics help you easily track the ball so you can focus on your footwork.",
+                    images: ["/images/products/n1.jpg", "/images/products/f7.jpg", "/images/products/f8.jpg", "/images/products/f9.jpg"]
+                },
+                {
+                    title:"Nike Sportswear Phoenix Fleece",
+                    name: "Women's High-Waisted Joggers",
+                    price: "$45.97",
+                    sizes: ["Select Size", "XXL", "XL", "Large", "Medium", "Small"],
+                    description: "The Nike 22oz Big Mouth Water Bottle has a squeezable design with a push-pull spout for easy drinking on the go.",
+                    images: ["/images/products/n9.jpg", "/images/products/f7.jpg", "/images/products/f8.jpg", "/images/products/f9.jpg"]
+                },
+                {
+                    title:"Jordan Legend",
+                    name: "Kids' Crew Socks Box Set (6-Pairs)",
+                    price: "$20",
+                    sizes: ["Select Size", "XXL", "XL", "Large", "Medium", "Small"],
+                    description: "Supportive footwear for kiddos begins with what's inside their shoes. These socks feature a breathable mesh upper and comfy cushioning at the bottom of the foot to help absorb impact during every run, jump and skip.",
+                    images: ["/images/products/n2.jpg", "/images/products/f7.jpg", "/images/products/f8.jpg", "/images/products/f9.jpg"]
+                },
+                {
+                    title:"Nike Pegasus 40 Premium",
+                    name: "Women's Road Running Shoes",
+                    price: "$140",
+                    sizes: ["Select Size", "XXL", "XL", "Large", "Medium", "Small"],
+                    description: "A springy ride for any run, the Peg’s familiar, just-for-you feel returns to help you accomplish your goals. This version has the same responsiveness and neutral support you love, but with improved comfort in those sensitive areas of your foot, like the arch and toes. Whether you’re logging long marathon miles, squeezing in a speed session before the sun goes down or hopping into a spontaneous group jaunt, it’s still the established road runner you can put your faith in, day after day, run after run. This special watercolor-like print with floral pastels and subtle pinks and greens captures the vibe of the summer season.",
+                    images: ["/images/products/f5.jpg", "/images/products/f7.jpg", "/images/products/f8.jpg", "/images/products/f9.jpg"]
+                },
+                {
+                    title:"Nike Sportswear Club Fleece",
+                    name: "Crew",
+                    price: "$55",
+                    sizes: ["Select Size", "XXL", "XL", "Large", "Medium", "Small"],
+                    description: "A closet staple, the Nike Sportswear Club Fleece Crew combines a classic embroidered logo on the left chest with the soft comfort of fleece for an elevated everyday look.",
+                    images: ["/images/products/f2.jpg", "/images/products/f7.jpg", "/images/products/f8.jpg", "/images/products/f9.jpg"]
+                },
+
+                // Add more item objects as needed
+            ];
+            
+            function showProductDetails(index) {
+                const mainImg = document.getElementById('MainImg');
+                const productDetails = document.getElementById('ProductDetails');
+            
+                // Populate the product detail section based on the index from the URL parameter
+                mainImg.src = itemData[index].images[0];
+                productDetails.innerHTML = `
+                    <h6>Home / ${itemData[index].title}</h6>
+                    <h4>${itemData[index].name}</h4>
+                    <h2>${itemData[index].price}</h2>
+                    <select>${itemData[index].sizes.map(size => `<option>${size}</option>`).join('')}</select>
+                    <input type="number" value="1">
+                    <button class="normal">Add To Cart</button>
+                    <h4>Product Details</h4>
+                    <span>${itemData[index].description}</span>
+                `;
+            }
+            
+            // Retrieve the item index from the URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedItemIndex = urlParams.get('item');
+            
+            // Display the product details for the selected item
+            if (selectedItemIndex !== null) {
+                showProductDetails(parseInt(selectedItemIndex));
+            }
+            </script>
+        
+        
+        
+
+        <section id="product1" class="section-p1">
+            <h2>Featured Products</h2>
+            <p>Summer Collection New Morden Design</p>
+            <div class="pro-container">
+                <div class="pro">
+                    <img src="/images/products/n1.jpg">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><i class="fa-solid fa-cart-arrow-down cart"></i></a>
+                </div>
+                <div class="pro">
+                    <img src="/images/products/n2.jpg">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><i class="fa-solid fa-cart-arrow-down cart"></i></a>
+                </div>
+                <div class="pro">
+                    <img src="/images/products/n3.jpg">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><i class="fa-solid fa-cart-arrow-down cart"></i></a>
+                </div>
+                <div class="pro">
+                    <img src="/images/products/n4.jpg">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#"><i class="fa-solid fa-cart-arrow-down cart"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="newsletter" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Sign Up For Newsletters</h4>
+                <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
+            </div>
+            <div class="form">
+                <input type="text" placeholder="Your E-mail Address">
+                <button class="normal">Sign Up</button>
+            </div>
+        </section>
+
+        <footer class="section-p1">
+            <div class="col">
+                <img class="logo" src="images/logo.png" alt="">
+                <h4>Contact</h4>
+                <p><strong>Address: </strong> 562 Wellington Road, Street 32, San Francisco</p>
+                <p><strong>Phone: </strong> +01 222 365 / (+91) 01 2345 6789</p>
+                <p><strong>Hours: </strong> 10:00 - 18:00, Mon - Sat</p>
+                <div class="follow">
+                    <h4>Follow us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-pinterest-p"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About us</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="/contact.html">Contact us</a>
+            </div>
+
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="#">Sign in</a>
+                <a href="#">View Cart</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">Track My Order</a>
+                <a href="#">Help</a>
+            </div>
+            
+            <div class="col install">
+                <h4>Install App</h4>
+                <p>From App Store or Google Play</p>
+                <div class="row">
+                    <img src="images/pay/app.jpg">
+                    <img src="images/pay/play.jpg">
+                </div>
+                <p>Secured Payment Gateways</p>
+                <img src="images/pay/pay.png">
+            </div>
+
+            <div class="copyrights">
+                <p> Hadi-Baydoun | Ecommerce Template </p>
+            </div>
+        </footer>
+        <script>
+            var MainImg = document.getElementById('MainImg');
+            var smallimg = document.getElementsByClassName('small-img');
+        
+            smallimg[0].onclick = function(){
+                MainImg.src = smallimg[0].src;
+            }
+            smallimg[1].onclick = function(){
+                MainImg.src = smallimg[1].src;
+            }
+            smallimg[2].onclick = function(){
+                MainImg.src = smallimg[2].src;
+            }
+            smallimg[3].onclick = function(){
+                MainImg.src = smallimg[3].src;
+            }
+        </script>
+        
+
+        <script src="script.js"></script>
+        
+    </body>
+
+</html>
