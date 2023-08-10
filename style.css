@@ -754,6 +754,7 @@ footer .copyrights{
     list-style: none;
     display: flex;
     padding: 10px 0;
+    gap: 15px;
 }
 #contact-details .details li i{
     font-size: 40px;
